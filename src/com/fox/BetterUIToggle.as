@@ -43,7 +43,7 @@ class com.fox.BetterUIToggle
 	static function ToggleOff():Void 
 	{
 		_root._visible = false;
-		DistributedValueBase.SetDValue("chat_group_windows", false);
-		DistributedValueBase.SetDValue("hud_map_window", false);
+		if(DistributedValueBase.GetDValue("BetterUIToggle_HideChat")) DistributedValueBase.SetDValue("chat_group_windows", false);
+		if(DistributedValueBase.GetDValue("BetterUIToggle_HideMap")) DistributedValueBase.SetDValue("hud_map_window", false);
 	}
 }

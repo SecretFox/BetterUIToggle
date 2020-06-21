@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
 <Root>
 	<Value name="BetterUIToggle" value="true" />
+	<Value name="BetterUIToggle_HideMap" value="true" />
+	<Value name="BetterUIToggle_HideChat" value="true" />
 </Root>
