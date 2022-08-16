@@ -6,7 +6,6 @@ class com.fox.BetterUIToggle
 	{
 		var s_app = new BetterUIToggle(swfRoot);
 		swfRoot.onLoad = function(){s_app.Load()};
-		swfRoot.onUnload = function(){s_app.Unload()};
 	}
 
 	public function BetterUIToggle() {
@@ -18,13 +17,8 @@ class com.fox.BetterUIToggle
 		ToggleOn();
 	}
 	
-	public function Unload()
-	{
-		ToggleOn();
-	}
-	
 	static function CheckToggle(){
-		if (!_root._visible || !DistributedValueBase.GetDValue("chat_group_windows"))
+		if (_root._alpha != 100 || !DistributedValueBase.GetDValue("chat_group_windows"))
 		{
 			ToggleOn();
 		}
@@ -36,13 +30,13 @@ class com.fox.BetterUIToggle
 	
 	static function ToggleOn():Void 
 	{
-		_root._visible = true;
+		_root._alpha = 100
 		DistributedValueBase.SetDValue("chat_group_windows", true);
 		DistributedValueBase.SetDValue("hud_map_window", true);
 	}
 	static function ToggleOff():Void 
 	{
-		_root._visible = false;
+		_root._alpha = 0;
 		if(DistributedValueBase.GetDValue("BetterUIToggle_HideChat")) DistributedValueBase.SetDValue("chat_group_windows", false);
 		if(DistributedValueBase.GetDValue("BetterUIToggle_HideMap")) DistributedValueBase.SetDValue("hud_map_window", false);
 	}
